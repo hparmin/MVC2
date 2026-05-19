@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>php tutorial || blog project || webprog.io</title>
+        <link
+                rel="stylesheet"
+                href="../../assets/css/bootstrap-icons.css"
+        />
+        <link
+                href="../../assets/css/bootstrap-min.css"
+                rel="stylesheet"
+        />
+        <link
+                href="../../assets/css/style.css"
+                rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <header
+            class="navbar sticky-top bg-secondary flex-md-nowrap p-0 shadow-sm"
+        >
+            <a
+                class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-5 text-white"
+                href="index.html"
+                >پنل ادمین</a
+            >
+
+            <button
+                class="ms-2 nav-link px-3 text-white d-md-none"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#sidebarMenu"
+            >
+                <i class="bi bi-justify-left fs-2"></i>
+            </button>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar Section -->
+                <div
+                    class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary"
+                >
+                    <div
+                        class="offcanvas-md offcanvas-end bg-body-tertiary"
+                        tabindex="-1"
+                        id="sidebarMenu"
+                    >
+                        <div class="offcanvas-header">
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="offcanvas"
+                                data-bs-target="#sidebarMenu"
+                            ></button>
+                        </div>
+
+                        <div
+                            class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto"
+                        >
+                            <ul class="nav flex-column pe-3">
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link link-body-emphasis text-decoration-none d-flex align-items-center gap-2"
+                                        href="../../index.html"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M96 128C78.3 128 64 142.3 64 160C64 177.7 78.3 192 96 192L182.7 192C195 220.3 223.2 240 256 240C288.8 240 317 220.3 329.3 192L544 192C561.7 192 576 177.7 576 160C576 142.3 561.7 128 544 128L329.3 128C317 99.7 288.8 80 256 80C223.2 80 195 99.7 182.7 128L96 128zM96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L342.7 352C355 380.3 383.2 400 416 400C448.8 400 477 380.3 489.3 352L544 352C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288L489.3 288C477 259.7 448.8 240 416 240C383.2 240 355 259.7 342.7 288L96 288zM96 448C78.3 448 64 462.3 64 480C64 497.7 78.3 512 96 512L150.7 512C163 540.3 191.2 560 224 560C256.8 560 285 540.3 297.3 512L544 512C561.7 512 576 497.7 576 480C576 462.3 561.7 448 544 448L297.3 448C285 419.7 256.8 400 224 400C191.2 400 163 419.7 150.7 448L96 448z"/></svg>
+                                        <span class="fw-bold">داشبورد</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link link-body-emphasis text-decoration-none d-flex align-items-center gap-2"
+                                        href="../posts/index.html"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M428.2 380.7L231.7 478.5c-2.3 1-4.8 1.5-7.3 1.5s-5-.5-7.3-1.5L20.5 380.7c-4-2-4-5.3 0-7.3L67.6 350c2.3-1 4.8-1.5 7.3-1.5s5 .5 7.3 1.5l134.8 67c2.3 1 4.8 1.5 7.3 1.5s5-.5 7.3-1.5l134.8-67c2.3-1 4.8-1.5 7.3-1.5s5 .5 7.3 1.5l47.1 23.4c4 2 4 5.2 0 7.2zm0-136.5l-47.1-23.4c-2.3-1-4.8-1.5-7.3-1.5s-5 .5-7.3 1.5L231.7 287.8c-2.3 1-4.8 1.5-7.3 1.5s-5-.5-7.3-1.5L82.3 220.7c-2.3-1-4.8-1.5-7.3-1.5s-5 .5-7.3 1.5L20.5 244.1c-4 2-4 5.3 0 7.3l196.5 97.8c2.3 1 4.8 1.5 7.3 1.5s5-.5 7.3-1.5l196.5-97.8c4-2 4-5.3 0-7.3zM20.5 130.4L217 220.7c4.7 1.9 10 1.9 14.7 0l196.5-90.3c4-1.9 4-4.9 0-6.7L231.7 33.4c-4.7-1.9-10-1.9-14.7 0L20.5 123.7c-4 1.8-4 4.9 0 6.7z"/></svg>
+                                        <span class="fw-bold">مقالات</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link link-body-emphasis text-decoration-none d-flex align-items-center gap-2"
+                                        href="../categories/index.html"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M0 96C0 60.7 28.7 32 64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zm64 0l0 64 64 0 0-64-64 0zm320 0l-192 0 0 64 192 0 0-64zM64 224l0 64 64 0 0-64-64 0zm320 0l-192 0 0 64 192 0 0-64zM64 352l0 64 64 0 0-64-64 0zm320 0l-192 0 0 64 192 0 0-64z"/></svg>
+
+                                        <span class="fw-bold">دسته بندی</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link link-body-emphasis text-decoration-none d-flex align-items-center gap-2 text-secondary"
+                                        href="./index.html"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M416 208C416 305.2 330 384 224 384C197.3 384 171.9 379 148.8 370L67.2 413.2C57.9 418.1 46.5 416.4 39 409C31.5 401.6 29.8 390.1 34.8 380.8L70.4 313.6C46.3 284.2 32 247.6 32 208C32 110.8 118 32 224 32C330 32 416 110.8 416 208zM416 576C321.9 576 243.6 513.9 227.2 432C347.2 430.5 451.5 345.1 463 229.3C546.3 248.5 608 317.6 608 400C608 439.6 593.7 476.2 569.6 505.6L605.2 572.8C610.1 582.1 608.4 593.5 601 601C593.6 608.5 582.1 610.2 572.8 605.2L491.2 562C468.1 571 442.7 576 416 576z"/></svg>
+                                        <span class="fw-bold">کامنت ها</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link link-body-emphasis text-decoration-none d-flex align-items-center gap-2"
+                                        href="#"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M569 337C578.4 327.6 578.4 312.4 569 303.1L425 159C418.1 152.1 407.8 150.1 398.8 153.8C389.8 157.5 384 166.3 384 176L384 256L272 256C245.5 256 224 277.5 224 304L224 336C224 362.5 245.5 384 272 384L384 384L384 464C384 473.7 389.8 482.5 398.8 486.2C407.8 489.9 418.1 487.9 425 481L569 337zM224 160C241.7 160 256 145.7 256 128C256 110.3 241.7 96 224 96L160 96C107 96 64 139 64 192L64 448C64 501 107 544 160 544L224 544C241.7 544 256 529.7 256 512C256 494.3 241.7 480 224 480L160 480C142.3 480 128 465.7 128 448L128 192C128 174.3 142.3 160 160 160L224 160z"/></svg>
+                                        <span class="fw-bold">خروج</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Section -->
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+                    >
+                        <h1 class="fs-3 fw-bold">کامنت ها</h1>
+                    </div>
+
+                    <!-- Comments -->
+                    <div class="mt-4">
+                        <div class="table-responsive small">
+                            <table class="table table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>نام</th>
+                                        <th>متن کامنت</th>
+                                        <th>عملیات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>1</th>
+                                        <td>علی شیخ</td>
+                                        <td>
+                                            لورم ایپسوم متن ساختگی با تولید
+                                            سادگی نامفهوم از صنعت چاپ و با
+                                            استفاده از طراحان گرافیک است.
+                                        </td>
+                                        <td>
+                                            <a
+                                                href="#"
+                                                class="btn btn-sm btn-outline-dark disabled"
+                                                >تایید شده</a
+                                            >
+                                            <a
+                                                href="#"
+                                                class="btn btn-sm btn-outline-danger"
+                                                >حذف</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>2</th>
+                                        <td>علی شیخ</td>
+                                        <td>
+                                            لورم ایپسوم متن ساختگی با تولید
+                                            سادگی نامفهوم از صنعت چاپ و با
+                                            استفاده از طراحان گرافیک است.
+                                        </td>
+                                        <td>
+                                            <a
+                                                href="#"
+                                                class="btn btn-sm btn-outline-info"
+                                                >در انتظار تایید</a
+                                            >
+                                            <a
+                                                href="#"
+                                                class="btn btn-sm btn-outline-danger"
+                                                >حذف</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>3</th>
+                                        <td>علی شیخ</td>
+                                        <td>
+                                            لورم ایپسوم متن ساختگی با تولید
+                                            سادگی نامفهوم از صنعت چاپ
+                                        </td>
+                                        <td>
+                                            <a
+                                                href="#"
+                                                class="btn btn-sm btn-outline-dark disabled"
+                                                >تایید شده</a
+                                            >
+                                            <a
+                                                href="#"
+                                                class="btn btn-sm btn-outline-danger"
+                                                >حذف</a
+                                            >
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <script
+                src="../../assets/js/bootstrap.bundle.min.js"
+        ></script>
+    </body>
+</html>
