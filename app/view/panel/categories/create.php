@@ -26,7 +26,7 @@
         >
             <a
                 class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-5 text-white"
-                href="index.html"
+                href="index.php"
                 >پنل ادمین</a
             >
 
@@ -79,7 +79,7 @@
                                 <li class="nav-item">
                                     <a
                                         class="nav-link link-body-emphasis text-decoration-none d-flex align-items-center gap-2"
-                                        href="./index.html"
+                                        href="./index.php"
                                     >
                                         <i
                                             class="bi bi-file-earmark-image-fill fs-4 text-secondary"
@@ -91,7 +91,7 @@
                                 <li class="nav-item">
                                     <a
                                         class="nav-link link-body-emphasis text-decoration-none d-flex align-items-center gap-2 text-secondary"
-                                        href="../categories/index.html"
+                                        href="../categories/index.php"
                                     >
                                         <i
                                             class="bi bi-folder-fill fs-4 text-secondary"

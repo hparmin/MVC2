@@ -10,7 +10,7 @@ class Post
 
     public function index()
     {
-        echo "index";
+        $this->view('panel.index');
     }
 
     public function show()

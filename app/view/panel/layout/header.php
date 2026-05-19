@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>php tutorial || blog project || webprog.io</title>
+
+    <link
+            rel="stylesheet"
+            href="<?php echo $this->asset('css/bootstrap-icons.css'); ?>"
+    />
+    <link
+            href="<?php echo $this->asset('css/bootstrap-min.css'); ?>"
+            rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="<?php echo $this->asset('css/panel-style.css'); ?>"/>
+</head>
+<body>
+<header class="navbar sticky-top bg-secondary flex-md-nowrap p-0 shadow-sm">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-5 text-white"
+            href="index.php">پنل ادمین</a>
+
+    <button
+            class="ms-2 nav-link px-3 text-white d-md-none"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebarMenu">
+        <i class="bi bi-justify-left fs-2"></i>
+    </button>
+</header>

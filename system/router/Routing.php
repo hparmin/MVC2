@@ -13,7 +13,7 @@ class Routing{
         global $current_url;
         $current_route = $this->current_route = explode('/',$current_url);
         if ($current_route[0] == ""){
-            echo "main page";
+            $this->view('pub.index');
             die();
         }
     }
