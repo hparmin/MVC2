@@ -4,32 +4,13 @@
     <section>
         <div id="carousel" class="carousel slide">
             <div class="carousel-indicators">
-                <button
-                        type="button"
-                        data-bs-target="#carousel"
-                        data-bs-slide-to="0"
-                        class="active"
-                ></button>
-                <button
-                        type="button"
-                        data-bs-target="#carousel"
-                        data-bs-slide-to="1"
-                ></button>
-                <button
-                        type="button"
-                        data-bs-target="#carousel"
-                        data-bs-slide-to="2"
-                ></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="2"></button>
             </div>
             <div class="carousel-inner rounded">
-                <div
-                        class="carousel-item overlay carousel-height active"
-                >
-                    <img
-                            src="<?php echo $this->asset('images/1.jpg'); ?>"
-                            class="d-block w-100"
-                            alt="post-image"
-                    />
+                <div class="carousel-item overlay carousel-height active">
+                    <img src="<?php echo $this->asset('images/1.jpg'); ?>" class="d-block w-100" alt="post-image"/>
                     <div class="carousel-caption d-none d-md-block">
                         <h5>لورم ایپسوم متن</h5>
                         <p>

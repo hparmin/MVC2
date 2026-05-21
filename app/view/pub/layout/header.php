@@ -14,10 +14,10 @@
 <div class="container py-3">
     <header
             class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-        <a href="index.php" class="fs-4 fw-medium link-body-emphasis text-decoration-none">
+        <a href="<?php $this->url(); ?>" class="fs-4 fw-medium link-body-emphasis text-decoration-none">
             arminhajipour.ir
         </a>
-        <nav class="d-inline-flex mt-2 mt-md-0 me-md-auto">
+        <nav class="d-inline-flex mt-2 mt-md-0 ">
             <a
                     class="fw-bold me-3 py-2 link-body-emphasis text-decoration-none"
                     href="#">طبیعت</a>
@@ -25,4 +25,8 @@
             <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">تکنولوژی</a>
             <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">متفرقه</a>
         </nav>
+        <div class="me-md-auto login-register-header-link">
+            <a href="#">ورود</a>
+            <a href="#">عضویت</a>
+        </div>
     </header>

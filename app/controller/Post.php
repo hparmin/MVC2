@@ -1,16 +1,25 @@
 <?php
-
 namespace app\controller;
 
-use system\traits\Mytrait;
+use app\model\Users;
+use app\model\Users as UserModel;
 
-class Post
+use PDO;
+use Exception;
+class Post extends Controller
 {
-    use Mytrait;
-
     public function index()
     {
-        $this->view('panel.index');
+        $users = new UserModel();
+        $users = $users->all()->fetchAll(PDO::FETCH_OBJ);
+        $this->view('pub.index',compact('users'));
+    }
+    public function insert()
+    {
+        $users = new UserModel();
+        $values = ['airom','123456','airom@gmail.com','admin'];
+        $users->insert($values);
+        $this->view('pub.index',compact('users'));
     }
 
     public function show()
