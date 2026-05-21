@@ -8,7 +8,9 @@
         url("../fonts/Vazir.ttf") format("truetype");
     /* Safari, Android, iOS */
 }
-
+a{
+    text-decoration: none;
+}
 body {
     background-image: linear-gradient(180deg, #e9ecef, #fff 100px, #fff);
     background-repeat: no-repeat;
@@ -18,7 +20,9 @@ body {
 .container {
     max-width: 1200px;
 }
-
+.w-40{
+    width: 40% !important;
+}
 .text-justify {
   text-align: justify;
 }
@@ -82,3 +86,23 @@ body {
         height: 450px;
     }
 }
+.register_page_error{
+    color: red;
+    margin-top: 2px;
+    display: inline-block;
+    font-size: 14px;
+}
+.login_page_url{
+    text-decoration: none;
+    color: #000;
+    transition: all 0.2s ease-in-out;
+}
+form.custom-armin-login-form{
+    padding: 50px 10px;
+    box-shadow: 1px 0px 54px -9px gray;
+    border-radius: 13px;
+}
+
+
+
+

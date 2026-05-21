@@ -1,3 +1,8 @@
+<?php
+if (!isset($_SESSION['login'])){
+    $this->route('users/login');
+}
+?>
 <!DOCTYPE html>
 <html dir="rtl" lang="fa">
 <head>
@@ -19,7 +24,7 @@
 <body>
 <header class="navbar sticky-top bg-secondary flex-md-nowrap p-0 shadow-sm">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-5 text-white"
-            href="index.php">پنل ادمین</a>
+       href="<?php $this->url('users/login'); ?>">پنل ادمین</a>
 
     <button
             class="ms-2 nav-link px-3 text-white d-md-none"

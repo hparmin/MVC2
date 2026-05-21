@@ -8,7 +8,9 @@
         url("../fonts/Vazir.ttf") format("truetype");
     /* Safari, Android, iOS */
 }
-
+a{
+    text-decoration: none;
+}
 body {
     font-family: "Vazir", sans-serif;
 }
@@ -16,7 +18,12 @@ body {
 /*
 * Sidebar
 */
-
+.register_page_error{
+    color: red;
+    margin-top: 2px;
+    display: inline-block;
+    font-size: 14px;
+}
 @media (min-width: 768px) {
     .sidebar .offcanvas-lg {
         position: -webkit-sticky;
@@ -64,6 +71,14 @@ form.custom-armin-login-form{
     padding: 50px 10px;
     box-shadow: 1px 0px 54px -9px gray;
     border-radius: 13px;
+}
+.login_page_url{
+    text-decoration: none;
+    color: #000;
+    transition: all 0.2s ease-in-out;
+}
+.login_page_url:hover{
+    color: darkblue;
 }
 main.form-signin{
     max-width: 400px !important;

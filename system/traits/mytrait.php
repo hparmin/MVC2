@@ -1,5 +1,4 @@
 <?php
-
 namespace system\traits;
 
 trait Mytrait
@@ -7,7 +6,7 @@ trait Mytrait
     protected function route($location)
     {
         $protocol = strpos($_SERVER['SERVER_PROTOCOL'], 'https') == true ? 'https' : 'http';
-        header('location:' . $protocol . "://" . $_SERVER['HTTP_HOST'] . '/mvc/' . $location);
+        header('location:' . $protocol . "://" . $_SERVER['HTTP_HOST'] . '/websoft-mvc/' . $location);
     }
 
     protected function reback()
@@ -31,7 +30,7 @@ trait Mytrait
     {
         global $site_url;
         if (!$url) {
-            return $site_url;
+            echo $site_url;
         } else {
             $path = $site_url . $url;
             echo $path;

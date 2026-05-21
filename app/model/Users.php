@@ -21,9 +21,14 @@ class Users extends Model
         $query = "SELECT * FROM users_tbl WHERE id=?";
         return $this->query($query,[$id])->fetch(PDO::FETCH_OBJ);
     }
+    public function find_by_email($email)
+    {
+        $query = "SELECT * FROM users_tbl WHERE email=?";
+        return $this->query($query,[$email])->fetch(PDO::FETCH_OBJ);
+    }
     public function insert($values)
     {
-        $sql = "INSERT INTO users_tbl (username,password,email,role) VALUES (?,?,?,?)";
+        $sql = "INSERT INTO users_tbl (email,password) VALUES (?,?)";
         $this->execute($sql,array_values($values));
     }
 
