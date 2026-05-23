@@ -1,214 +1,63 @@
-<!DOCTYPE html>
-<html dir="rtl" lang="fa">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>php tutorial || blog project || webprog.io</title>
-        <link
-                rel="stylesheet"
-                href="../../assets/css/bootstrap-icons.css"
-        />
-        <link
-                href="../../assets/css/bootstrap-min.css"
-                rel="stylesheet"
-        />
-        <link rel="stylesheet" href="../../assets/css/style.css" />
-    </head>
+<?php
+$this->layout_include('panel.layout.header');
+?>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Section -->
+            <?php
+            $this->layout_include('panel.layout.sidebar');
+            ?>
 
-    <body>
-        <header
-            class="navbar sticky-top bg-secondary flex-md-nowrap p-0 shadow-sm"
-        >
-            <a
-                class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-5 text-white"
-                href="index.php"
-                >پنل ادمین</a
-            >
-
-            <button
-                class="ms-2 nav-link px-3 text-white d-md-none"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#sidebarMenu"
-            >
-                <i class="bi bi-justify-left fs-2"></i>
-            </button>
-        </header>
-
-        <div class="container-fluid">
-            <div class="row">
-                <!-- Sidebar Section -->
+            <!-- Main Section -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div
-                    class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary"
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
                 >
-                    <div
-                        class="offcanvas-md offcanvas-end bg-body-tertiary"
-                        tabindex="-1"
-                        id="sidebarMenu"
-                    >
-                        <div class="offcanvas-header">
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="offcanvas"
-                                data-bs-target="#sidebarMenu"
-                            ></button>
-                        </div>
+                    <h1 class="fs-3 fw-bold">دسته بندی ها</h1>
 
-                        <div
-                            class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto"
-                        >
-                            <ul class="nav flex-column pe-3">
-                                <li class="nav-item">
-                                    <a
-                                        class="nav-link link-body-emphasis text-decoration-none d-flex align-items-center gap-2"
-                                        href="../../index.html"
-                                    >
-                                        <i
-                                            class="bi bi-house-fill fs-4 text-secondary"
-                                        ></i>
-                                        <span class="fw-bold">داشبورد</span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a
-                                        class="nav-link link-body-emphasis text-decoration-none d-flex align-items-center gap-2"
-                                        href="../posts/index.html"
-                                    >
-                                        <i
-                                            class="bi bi-file-earmark-image-fill fs-4 text-secondary"
-                                        ></i>
-                                        <span class="fw-bold">مقالات</span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a
-                                        class="nav-link link-body-emphasis text-decoration-none d-flex align-items-center gap-2 text-secondary"
-                                        href="./index.php"
-                                    >
-                                        <i
-                                            class="bi bi-folder-fill fs-4 text-secondary"
-                                        ></i>
-
-                                        <span class="fw-bold">دسته بندی</span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a
-                                        class="nav-link link-body-emphasis text-decoration-none d-flex align-items-center gap-2"
-                                        href="../comments/index.html"
-                                    >
-                                        <i
-                                            class="bi bi-chat-left-text-fill fs-4 text-secondary"
-                                        ></i>
-
-                                        <span class="fw-bold">کامنت ها</span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a
-                                        class="nav-link link-body-emphasis text-decoration-none d-flex align-items-center gap-2"
-                                        href="#"
-                                    >
-                                        <i
-                                            class="bi bi-box-arrow-right fs-4 text-secondary"
-                                        ></i>
-
-                                        <span class="fw-bold">خروج</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <a href="<?php $this->url('categories/create'); ?>" class="btn btn-sm btn-dark">
+                            ایجاد دسته بندی
+                        </a>
                     </div>
                 </div>
-
-                <!-- Main Section -->
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                    <div
-                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
-                    >
-                        <h1 class="fs-3 fw-bold">دسته بندی ها</h1>
-
-                        <div class="btn-toolbar mb-2 mb-md-0">
-                            <a href="./create.php" class="btn btn-sm btn-dark">
-                                ایجاد دسته بندی
-                            </a>
-                        </div>
+                <!-- Categories -->
+                <div class="mt-4">
+                    <div class="table-responsive small">
+                        <table class="table table-hover align-middle">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>عنوان</th>
+                                <th>عملیات</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php if (!empty($categories)) { ?>
+                                <?php foreach ($categories as $category): ?>
+                                    <tr>
+                                        <th><?php echo $category->id; ?></th>
+                                        <td><?php echo $category->title; ?></td>
+                                        <td>
+                                            <a href="<?php $this->url("categories/edit/$category->id"); ?>" class="btn btn-sm btn-outline-dark">ویرایش</a>
+                                            <a href="<?php $this->url("categories/delete/$category->id"); ?>" class="btn btn-sm btn-outline-danger">حذف</a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php } else { ?>
+                                <tr>
+                                    <td>
+                                        <p>دسته بندی ای وجود ندارد</p>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
-
-                    <!-- Categories -->
-                    <div class="mt-4">
-                        <div class="table-responsive small">
-                            <table class="table table-hover align-middle">
-                                <thead>
-                                    <tr>
-                                        <th>id</th>
-                                        <th>عنوان</th>
-                                        <th>عملیات</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>1</th>
-                                        <td>طبیعت</td>
-                                        <td>
-                                            <a
-                                                href="./edit.php"
-                                                class="btn btn-sm btn-outline-dark"
-                                                >ویرایش</a
-                                            >
-                                            <a
-                                                href="#"
-                                                class="btn btn-sm btn-outline-danger"
-                                                >حذف</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>2</th>
-                                        <td>گردشگری</td>
-                                        <td>
-                                            <a
-                                                href="./edit.php"
-                                                class="btn btn-sm btn-outline-dark"
-                                                >ویرایش</a
-                                            >
-                                            <a
-                                                href="#"
-                                                class="btn btn-sm btn-outline-danger"
-                                                >حذف</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>3</th>
-                                        <td>متفرقه</td>
-                                        <td>
-                                            <a
-                                                href="./edit.php"
-                                                class="btn btn-sm btn-outline-dark"
-                                                >ویرایش</a
-                                            >
-                                            <a
-                                                href="#"
-                                                class="btn btn-sm btn-outline-danger"
-                                                >حذف</a
-                                            >
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </main>
-            </div>
+                </div>
+            </main>
         </div>
-        <script
-                src="../../assets/js/bootstrap.bundle.min.js"
-        ></script>
-    </body>
-</html>
+    </div>
+<?php
+$this->layout_include('panel.layout.footer');
+?>

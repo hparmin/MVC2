@@ -6,7 +6,6 @@ class Panel extends Controller
 {
     public function __constructc()
     {
-
     }
 
     public function index()

@@ -86,4 +86,14 @@ main.form-signin{
 .nav-item a svg{
     width: 18px;
 }
+tbody tr td{
+    max-width: 250px;
+}
 
+.three-line-code{
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* تعداد خطوط */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
