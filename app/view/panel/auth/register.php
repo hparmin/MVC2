@@ -1,4 +1,8 @@
-<?php $this->layout_include('pub.layout.header'); ?>
+<?php $this->layout_include('pub.layout.header');
+if (isset($_SESSION['login'])){
+    $this->route('panel');
+}
+?>
 <main class="form-signin w-40 m-auto">
     <form method="post" class="custom-armin-login-form">
         <div class="fs-9 fw-bold text-center mb-4">

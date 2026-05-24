@@ -1,5 +1,6 @@
 <?php
-$this->layout_include('panel.layout.header'); ?>
+$this->layout_include('panel.layout.header');
+global $site_url; ?>
 <div class="container-fluid">
     <div class="row">
         <!-- Sidebar Section -->
@@ -33,19 +34,25 @@ $this->layout_include('panel.layout.header'); ?>
                         <?php foreach ($posts as $post) { ?>
                             <tr>
                                 <th><?php echo $post->id; ?></th>
-                                <td><div class="three-line-code"><?php echo $post->body; ?></div></td>
-                                <td><?php echo 'armin'; ?></td>
+                                <td><div class="three-line-code"><?php echo $post->title; ?></div></td>
+                                <td><?php
+                                    foreach ($users as $user){
+                                        if ($user->id == $post->author){
+                                            echo $this->find_user_nickname($user);
+                                        }
+                                    }
+                                    ?></td>
                                 <td><?php foreach ($categories as $category){
                                     if ($category->id == $post->categories){
                                         echo $category->title;
                                     }
                                     }?></td>
                                 <td>
-                                    <img style="max-width: 200px; border-radius: 10px;" src="<?php echo $post->img; ?>" alt="">
+                                    <img style="max-width: 150px; max-height: 100px; border-radius: 10px;" src="<?php echo $site_url.$post->img; ?>" alt="">
                                 </td>
                                 <td>
-                                    <a href="./edit.php" class="btn btn-sm btn-outline-dark">ویرایش</a>
-                                    <a href="#" class="btn btn-sm btn-outline-danger">حذف</a>
+                                    <a href="<?php echo $this->url("posts/edit/$post->id"); ?>" class="btn btn-sm btn-outline-dark">ویرایش</a>
+                                    <a href="<?php echo $this->url("posts/delete/$post->id"); ?>" class="btn btn-sm btn-outline-danger">حذف</a>
                                 </td>
                             </tr>
                         <?php } ?>

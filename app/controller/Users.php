@@ -5,7 +5,6 @@ namespace app\controller;
 use PDO;
 use Exception;
 use app\model\Users as UsersModel;
-
 class Users extends Controller
 {
     public function login()
@@ -16,7 +15,7 @@ class Users extends Controller
             $current_user = $users->find_by_email($_POST['email']);
             if ($current_user) {
                 if ($current_user->password == $_POST['password']) {
-                    $_SESSION['login'] = $current_user->username;
+                    $_SESSION['login'] = $current_user->email;
                     $this->route('panel');
                 } else {
                     $err['password'] = "رمز عبور نا معتبر";
@@ -66,6 +65,13 @@ class Users extends Controller
         $user = new UsersModel();
         $the_user = $user->find($username);
         var_dump($the_user);
+    }
+
+    public function edit()
+    {
+        $user = new UsersModel();
+        $the_user = $user->find_by_email($_SESSION['login']);
+        $this->view('panel.user.edit');
     }
 
     public function delete_user($id)

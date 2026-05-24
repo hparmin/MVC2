@@ -6,6 +6,12 @@ use PDO;
 
 class Users extends Model
 {
+    public static function findByEmail()
+    {
+        $user_model = new self();
+        return $user_model->find_by_email($_SESSION['login']);
+    }
+
     public  function all()
     {
         $query = "SELECT * FROM users_tbl";
@@ -16,15 +22,15 @@ class Users extends Model
         $query = "SELECT * FROM users_tbl WHERE username=?";
         return $this->query($query,[$username])->fetch(PDO::FETCH_OBJ);
     }
-    public function find_by_id($id)
-    {
-        $query = "SELECT * FROM users_tbl WHERE id=?";
-        return $this->query($query,[$id])->fetch(PDO::FETCH_OBJ);
-    }
     public function find_by_email($email)
     {
         $query = "SELECT * FROM users_tbl WHERE email=?";
         return $this->query($query,[$email])->fetch(PDO::FETCH_OBJ);
+    }
+    public function find_by_id($id)
+    {
+        $query = "SELECT * FROM users_tbl WHERE id=?";
+        return $this->query($query,[$id])->fetch(PDO::FETCH_OBJ);
     }
     public function insert($values)
     {

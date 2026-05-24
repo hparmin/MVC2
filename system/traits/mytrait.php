@@ -67,4 +67,14 @@ trait Mytrait
         }
     }
 
+    public function find_user_nickname($object)
+    {
+        if (!empty($object->persian_name)){
+            return $object->persian_name;
+        }elseif (!empty($object->username)){
+            return $object->username;
+        }else{
+            return $object->email;
+        }
+    }
 }
