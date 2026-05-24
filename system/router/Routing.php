@@ -1,6 +1,7 @@
 <?php
 namespace system\router;
 
+use app\controller\Home;
 use ReflectionMethod;
 use system\traits\Mytrait;
 
@@ -13,7 +14,9 @@ class Routing{
         global $current_url;
         $current_route = $this->current_route = explode('/',$current_url);
         if ($current_route[0] == ""){
-            $this->view('pub.index');
+            $home = new Home();
+            $home->index();
+//            $this->view('pub.index');
             die();
         }
     }

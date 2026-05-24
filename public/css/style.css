@@ -102,6 +102,13 @@ form.custom-armin-login-form{
     box-shadow: 1px 0px 54px -9px gray;
     border-radius: 13px;
 }
+p.lines-5-limit{
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 
 

@@ -111,16 +111,65 @@ class Posts extends Model
 
                 $query = "UPDATE posts_tbl SET title=? , categories=? , body=? , img=? WHERE id=?";
                 $this->execute($query, array_merge(array_values($database_values), [$post_id]));
-            }else{
+            } else {
                 // if pictute has not uploaded, just update the valuse:
                 $query = "UPDATE posts_tbl SET title=? , categories=? , body=? WHERE id=?";
                 $this->execute($query, array_merge(array_values($values), [$post_id]));
             }
         }
-
-
     }
 
+    public function all_posts_with_cat_and_author()
+    {
+        $sql = "SELECT
+            posts_tbl.id,
+            posts_tbl.title,
+            posts_tbl.body,
+            posts_tbl.img,
+
+            users_tbl.username,
+            users_tbl.persian_name,
+
+            categories_tbl.title AS category_title
+
+        FROM posts_tbl
+
+        INNER JOIN users_tbl
+        ON posts_tbl.author = users_tbl.id
+
+        INNER JOIN categories_tbl
+        ON posts_tbl.categories = categories_tbl.id
+        ORDER BY id DESC";
+
+        return $this->query($sql)->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function post_with_cat_and_author($id)
+    {
+        $sql = "SELECT
+            posts_tbl.id,
+            posts_tbl.title,
+            posts_tbl.body,
+            posts_tbl.img,
+
+            users_tbl.username,
+            users_tbl.persian_name,
+            users_tbl.email,
+
+            categories_tbl.title AS category_title
+
+        FROM posts_tbl
+
+        INNER JOIN users_tbl
+        ON posts_tbl.author = users_tbl.id
+
+        INNER JOIN categories_tbl
+        ON posts_tbl.categories = categories_tbl.id
+        
+        WHERE posts_tbl.id=?
+        ";
+
+        return $this->query($sql,[$id])->fetch(PDO::FETCH_OBJ);
+    }
 
     // بعدا دستور پایین تست شود:
     public function find_by_text($text)

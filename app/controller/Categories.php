@@ -35,6 +35,12 @@ class Categories extends Controller
         $this->view('panel.categories.edit',compact('category'));
     }
 
+    public function archive($id)
+    {
+       $categories = new CategoriesModel();
+       $posts = $categories->posts_of_category($id);
+       $this->view('pub.category_archive',compact('posts'));
+    }
     public function delete($id)
     {
         $categories = new CategoriesModel();

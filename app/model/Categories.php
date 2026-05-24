@@ -32,4 +32,30 @@ class Categories extends Model
         $sql = "DELETE FROM categories_tbl WHERE id=?";
         $this->execute($sql,[$id]);
     }
+
+    public function posts_of_category($id)
+    {
+        $sql = "SELECT
+            posts_tbl.id,
+            posts_tbl.title,
+            posts_tbl.body,
+            posts_tbl.img,
+
+            users_tbl.username,
+            users_tbl.persian_name,
+
+            categories_tbl.title AS category_title
+
+        FROM posts_tbl
+
+        INNER JOIN users_tbl
+        ON posts_tbl.author = users_tbl.id
+
+        INNER JOIN categories_tbl
+        ON posts_tbl.categories = categories_tbl.id
+        
+        WHERE categories_tbl.id=?";
+
+        return $this->query($sql,[$id])->fetchAll(PDO::FETCH_OBJ);
+    }
 }

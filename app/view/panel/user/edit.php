@@ -12,63 +12,52 @@ $this->layout_include('panel.layout.header');
                 <div
                         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
                 >
-                    <h1 class="fs-3 fw-bold">ویرایش مقاله</h1>
+                    <h1 class="fs-3 fw-bold">ویرایش اطلاعات کاربری</h1>
                 </div>
                 <!-- Posts -->
                 <div class="mt-4">
-                    <?php if ($post) { ?>
-                        <form method="post" enctype="multipart/form-data" class="row g-4">
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <label class="form-label">عنوان مقاله</label>
-                                <input
-                                        name="title"
-                                        type="text"
-                                        class="form-control"
-                                        value="<?php echo $post->title; ?>"
-                                />
-                            </div>
+                    <form method="post" class="row g-4">
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <label class="form-label">ایمیل</label>
+                            <input
+                                    name="email"
+                                    type="text"
+                                    class="form-control"
+                                    value="<?php echo $user->email; ?>"/>
+                            <?php if (isset($_GET['email']) && $_GET['email']) { ?>
+                                <p class="text-danger">ایمیل وارد شده توسط شخص دیگری انتخاب شده بود.</p>
+                            <?php } ?>
+                        </div>
 
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <label class="form-label">دسته بندی مقاله</label>
-                                <select name="categories" class="form-select">
-                                    <?php foreach ($all_categories as $category) { ?>
-                                        <option
-                                            <?php
-                                            if ($category->id == $post->categories) {
-                                                echo "selected";
-                                            }
-                                            ?>
-                                                value="<?php echo $category->id; ?>"><?php echo $category->title; ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <label class="form-label">نام کاربری</label>
+                            <input
+                                    name="username"
+                                    type="text"
+                                    class="form-control"
+                                    value="<?php echo $user->username; ?>"/>
+                            <?php if (isset($_GET['username']) && $_GET['username']) { ?>
+                                <p class="text-danger">نام کاربری وارد شده توسط شخص دیگری انتخاب شده بود.</p>
+                            <?php } ?>
+                        </div>
 
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <label for="formFile" class="form-label">تصویر مقاله</label>
-                                <input name="picture" class="form-control" type="file"/>
-                            </div>
-                            <div class="col-12">
-                                <label for="formFile" class="form-label">متن مقاله</label>
-                                <textarea name="body" class="form-control"
-                                          rows="8"><?php echo $post->body; ?></textarea>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <?php global $project_directory; ?>
-                                <img class="rounded" src="<?php echo $project_directory . $post->img; ?>" width="300"/>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-dark">
-                                    ویرایش
-                                </button>
-                            </div>
-                        </form>
-                    <?php }else{
-                    ?>
-                    <p>
-                        <?php
-                        echo "مقاله پیدا نشد.";
-                        } ?>
-                    </p>
+
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <label class="form-label">نام فارسی</label>
+                            <input
+                                    name="persian_name"
+                                    type="text"
+                                    class="form-control"
+                                    value="<?php echo $user->persian_name; ?>"/>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <button type="submit" class="btn btn-dark">
+                                ویرایش
+                            </button>
+                        </div>
+                    </form>
+
                 </div>
             </main>
         </div>

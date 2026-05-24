@@ -24,7 +24,7 @@ if (!isset($_SESSION['login'])){
 <body>
 <header class="navbar sticky-top bg-secondary flex-md-nowrap p-0 shadow-sm">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-5 text-white"
-       href="<?php $this->url('users/login'); ?>">پنل ادمین</a>
+       href="<?php $this->url(''); ?>">بازدید سایت</a>
 
     <button
             class="ms-2 nav-link px-3 text-white d-md-none"

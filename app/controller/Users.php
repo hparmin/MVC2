@@ -56,8 +56,15 @@ class Users extends Controller
     public function index()
     {
         $users = new UsersModel();
-        $users = $users->all();
-        $this->view('pub.index', compact('users'));
+        $user = $users->find_by_email($_SESSION['login']);
+        if (isset($_POST['email']) && isset($_POST['username']) && isset($_POST['persian_name'])){
+            $user_id = $user->id;
+            $res = $users->update($_POST,$user_id);
+            $email_error = $res['email'];
+            $username_error = $res['username'];
+            $this->route("users?email=$email_error&&username=$username_error");
+        }
+        $this->view('panel.user.edit', compact('user'));
     }
 
     public function find_user($username)

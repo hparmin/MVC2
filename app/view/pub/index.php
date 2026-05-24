@@ -1,4 +1,5 @@
-<?php $this->layout_include('pub.layout.header'); ?>
+<?php
+$this->layout_include('pub.layout.header'); ?>
 <main>
     <!-- Slider Section -->
     <section>
@@ -75,150 +76,35 @@
             <!-- Posts Content -->
             <div class="col-lg-8">
                 <div class="row g-3">
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <img
-                                    src="<?php echo $this->asset('images/4.jpg'); ?>"
-                                    class="card-img-top"
-                                    alt="post-image"
-                            />
-                            <div class="card-body">
-                                <div
-                                        class="d-flex justify-content-between"
-                                >
-                                    <h5 class="card-title fw-bold">
-                                        لورم ایپسوم
-                                    </h5>
-                                    <div>
-                                                    <span
-                                                            class="badge text-bg-secondary"
-                                                    >طبیعت</span
-                                                    >
+                    <?php foreach ($posts as $post): ?>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <img <?php global $site_url; ?>
+                                        src="<?php echo $site_url . $post->img; ?>" class="card-img-top"
+                                        alt="post-image">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title fw-bold">
+                                            <?php echo $post->title; ?>
+                                        </h5>
+                                        <div>
+                                            <span class="badge text-bg-secondary"><?php echo $post->category_title; ?></span>
+                                        </div>
                                     </div>
-                                </div>
-                                <p
-                                        class="card-text text-secondary pt-3"
-                                >
-                                    لورم ایپسوم متن ساختگی با تولید
-                                    سادگی نامفهوم از صنعت چاپ و با
-                                    استفاده از طراحان گرافیک است.
-                                    چاپگرها و متون بلکه روزنامه و
-                                    مجله در ستون و سطرآنچنان که لازم
-                                    است و برای شرایط فعلی تکنولوژی
-                                    مورد نیاز و کاربردهای متنوع با
-                                    هدف بهبود
-                                </p>
-                                <div
-                                        class="d-flex justify-content-between align-items-center"
-                                >
-                                    <a
-                                            href="single.php"
-                                            class="btn btn-sm btn-dark"
-                                    >مشاهده</a
-                                    >
+                                    <p class="card-text text-secondary pt-3 lines-5-limit">
+                                       <?php echo $post->body; ?>
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="<?php echo $this->url("posts/single/$post->id"); ?>" class="btn btn-sm btn-dark">مشاهده</a>
 
-                                    <p class="fs-7 mb-0">
-                                        نویسنده : آرمین حاجی پور
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <img
-                                    src="<?php echo $this->asset('images/5.jpg'); ?>"
-                                    class="card-img-top"
-                                    alt="post-image"
-                            />
-                            <div class="card-body">
-                                <div
-                                        class="d-flex justify-content-between"
-                                >
-                                    <h5 class="card-title fw-bold">
-                                        لورم ایپسوم
-                                    </h5>
-                                    <div>
-                                                    <span
-                                                            class="badge text-bg-secondary"
-                                                    >گردشگری</span
-                                                    >
+                                        <p class="fs-7 mb-0">
+                                            نویسنده : <?php echo $post->persian_name; ?>
+                                        </p>
                                     </div>
                                 </div>
-                                <p
-                                        class="card-text text-secondary pt-3"
-                                >
-                                    لورم ایپسوم متن ساختگی با تولید
-                                    سادگی نامفهوم از صنعت چاپ و با
-                                    استفاده از طراحان گرافیک است.
-                                    چاپگرها و متون بلکه روزنامه و
-                                    مجله در ستون و سطرآنچنان که لازم
-                                    است و برای شرایط فعلی تکنولوژی
-                                    مورد نیاز و کاربردهای متنوع با
-                                    هدف بهبود
-                                </p>
-                                <div
-                                        class="d-flex justify-content-between align-items-center"
-                                >
-                                    <a
-                                            href="single.php"
-                                            class="btn btn-sm btn-dark">مشاهده</a>
-                                    <p class="fs-7 mb-0">
-                                        نویسنده : آرمین حاجی پور
-                                    </p>
-                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <img
-                                    src="<?php echo $this->asset('images/6.jpg'); ?>"
-                                    class="card-img-top"
-                                    alt="post-image"
-                            />
-                            <div class="card-body">
-                                <div
-                                        class="d-flex justify-content-between"
-                                >
-                                    <h5 class="card-title fw-bold">
-                                        لورم ایپسوم
-                                    </h5>
-                                    <div>
-                                                    <span
-                                                            class="badge text-bg-secondary"
-                                                    >متفزقه</span
-                                                    >
-                                    </div>
-                                </div>
-                                <p
-                                        class="card-text text-secondary pt-3"
-                                >
-                                    لورم ایپسوم متن ساختگی با تولید
-                                    سادگی نامفهوم از صنعت چاپ و با
-                                    استفاده از طراحان گرافیک است.
-                                    چاپگرها و متون بلکه روزنامه و
-                                    مجله در ستون و سطرآنچنان که لازم
-                                    است و برای شرایط فعلی تکنولوژی
-                                    مورد نیاز و کاربردهای متنوع با
-                                    هدف بهبود
-                                </p>
-                                <div
-                                        class="d-flex justify-content-between align-items-center"
-                                >
-                                    <a
-                                            href="single.php"
-                                            class="btn btn-sm btn-dark"
-                                    >مشاهده</a
-                                    >
-
-                                    <p class="fs-7 mb-0">
-                                        نویسنده : علی شیخ
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center flex-md-row-reverse">
                             <li class="page-item disabled">

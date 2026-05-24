@@ -65,9 +65,20 @@ class Posts extends Controller
             $this->route("posts/edit/$post->id");
         }
     }
-
+    public function single($id)
+    {
+        $posts = new PostsModel();
+        $post = $posts->post_with_cat_and_author($id);
+        $this->view('pub.single',compact('post'));
+    }
     public function update()
     {
 
+    }
+    public function test()
+    {
+        $posts = new PostsModel();
+        $posts = $posts->all_posts_with_cat_and_author();
+        var_dump($posts);
     }
 }
