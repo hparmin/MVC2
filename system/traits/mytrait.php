@@ -36,21 +36,7 @@ trait Mytrait
             echo $path;
         }
     }
-
-    protected function view($file, $var = null)
-    {
-        if ($var) {
-            extract($var);
-        }
-        // وقتی از این متد استفاده میشه، برای آدرس دهی به جای اسلش از نقطه استفاده میکنیم:
-        $file = str_replace('.', '/', $file);
-        $location = realpath(dirname(__FILE__) . "/../../app/view/" . $file . ".php");
-        if (file_exists($location)) {
-            require_once $location;
-        } else {
-            echo "فایل مورد نظر شما در پوشه ویو وجود ندارد.";
-        }
-    }
+    
 
     protected function layout_include($file, $var = null)
     {

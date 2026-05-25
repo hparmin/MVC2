@@ -1,5 +1,6 @@
 <?php
-$this->layout_include('pub.layout.header'); ?>
+$this->layout_include('pub.layout.header',compact('categories'));
+?>
 <main>
     <!-- Slider Section -->
     <section>

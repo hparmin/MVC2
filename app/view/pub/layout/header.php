@@ -18,10 +18,9 @@
             arminhajipour.ir
         </a>
         <nav class="d-inline-flex mt-2 mt-md-0 ">
-            <a class="fw-bold me-3 py-2 link-body-emphasis text-decoration-none" href="#">طبیعت</a>
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">گردشگری</a>
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">تکنولوژی</a>
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">متفرقه</a>
+            <?php foreach ($categories as $category): ?>
+                <a class="<?php if (false){echo "fw-bold"; } ?>  me-3 py-2 link-body-emphasis text-decoration-none" href="#"><?php echo $category->title; ?></a>
+            <?php endforeach; ?>
         </nav>
         <div class="me-md-auto login-register-header-link">
             <?php if (isset($_SESSION['login'])) { ?>

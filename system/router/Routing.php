@@ -13,7 +13,7 @@ class Routing{
     {
         global $current_url;
         $current_route = $this->current_route = explode('/',$current_url);
-        if ($current_route[0] == ""){
+        if ($current_route[0] == "" || $current_route[0] == "controller"){
             $home = new Home();
             $home->index();
 //            $this->view('pub.index');
@@ -29,6 +29,7 @@ class Routing{
             die();
         }
         sizeof($this->current_route) == 1 ? $method='index' : $method=$this->current_route[1];
+        $method = ($method == "") ? "index" : $method;
         $class="app\controller\\".$this->current_route[0];
         $object=new $class();
         if (method_exists($object,$method)) {
