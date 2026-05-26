@@ -34,7 +34,7 @@ global $site_url; ?>
                         <?php foreach ($posts as $post) { ?>
                             <tr>
                                 <th><?php echo $post->id; ?></th>
-                                <td><div class="three-line-code"><?php echo $post->title; ?></div></td>
+                                <td><div class="three-line-code"><a style="color:#000;" href="<?php echo $this->url("posts/single/$post->id"); ?>"><?php echo $post->title; ?></a></div></td>
                                 <td><?php
                                     foreach ($users as $user){
                                         if ($user->id == $post->author){

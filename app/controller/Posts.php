@@ -35,7 +35,6 @@ class Posts extends Controller
     public function store()
     {
         $users = new PostsModel();
-
         $this->view('pub.index');
     }
 

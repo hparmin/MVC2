@@ -57,23 +57,24 @@ $this->layout_include('pub.layout.header', compact('categories'));
                                 <p class="fw-bold fs-5">
                                     ارسال کامنت
                                 </p>
-                                <form>
-                                    <div class="mb-3">
-                                        <label class="form-label"
-                                        >نام</label
-                                        >
-                                        <input
-                                                type="text"
-                                                class="form-control"/>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">متن کامنت</label>
-                                        <textarea class="form-control" rows="3"></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-dark">
-                                        ارسال
-                                    </button>
-                                </form>
+                                <?php if ($_SESSION['login']) { ?>
+                                    <form method="post" action="<?php
+                                    global $site_url;
+                                    echo $site_url."comments/insert";
+                                    ?>">
+<!--                                        <div class="mb-3">-->
+<!--                                            <label class="form-label">نام</label>-->
+<!--                                            <input type="text" class="form-control"/>-->
+<!--                                        </div>-->
+                                        <div class="mb-3">
+                                            <label class="form-label">متن کامنت</label>
+                                            <textarea name="comment_text" class="form-control" rows="3"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-dark">
+                                            ارسال
+                                        </button>
+                                    </form>
+                                <?php } ?>
                             </div>
                         </div>
                         <hr class="mt-4"/>
@@ -149,7 +150,7 @@ $this->layout_include('pub.layout.header', compact('categories'));
             </div>
 
             <!-- Sidebar Section -->
-            <?php $this->layout_include('pub.layout.sidebar',compact('categories')); ?>
+            <?php $this->layout_include('pub.layout.sidebar', compact('categories')); ?>
         </div>
     </section>
 </main>

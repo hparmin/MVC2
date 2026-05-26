@@ -30,22 +30,27 @@ class Users extends Controller
     public function register()
     {
         $err = [];
+
         if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['tfc_password'])) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
             if (count($_POST) == 3) {
                 $users = new UsersModel();
 
-                $find_email = $users->find_by_email($_POST['email']);
+                $find_email = $users->find_by_email($email);
                 if ($find_email) {
                     $err['email'] = "ایمیل وارد شده دارای حساب کاربری میباشد.";
                 }
-                if ($_POST['password'] != $_POST['tfc_password']) {
+                if ($password != $_POST['tfc_password']) {
                     $err['password'] = "پسوورد های وارد شده همسان نیستند.";
                 } else {
                     unset($_POST['tfc_password']);
                 }
 
                 if (empty($err)) {
-                    $users->insert($_POST);
+                    $users->insert([
+                        $email,$password
+                    ]);
                     $this->route('panel');
                 }
             }
@@ -70,8 +75,12 @@ class Users extends Controller
     public function find_user($username)
     {
         $user = new UsersModel();
-        $the_user = $user->find($username);
-        var_dump($the_user);
+        return $user->find($username);
+    }
+    public function find_user_by_email($email)
+    {
+        $user = new UsersModel();
+        return $user->find_by_email($email);
     }
 
     public function edit()
