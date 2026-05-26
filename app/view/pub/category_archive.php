@@ -1,5 +1,5 @@
 <?php
-$this->layout_include('pub.layout.header'); ?>
+$this->layout_include('pub.layout.header',compact('categories')); ?>
 <main>
     <!-- Content Section -->
     <section class="mt-4">
@@ -73,7 +73,7 @@ $this->layout_include('pub.layout.header'); ?>
             </div>
 
             <!-- Sidebar Section -->
-            <?php $this->layout_include('pub.layout.sidebar'); ?>
+            <?php $this->layout_include('pub.layout.sidebar',compact('categories')); ?>
         </div>
     </section>
 </main>

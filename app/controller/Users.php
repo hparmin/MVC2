@@ -57,7 +57,7 @@ class Users extends Controller
     {
         $users = new UsersModel();
         $user = $users->find_by_email($_SESSION['login']);
-        if (isset($_POST['email']) && isset($_POST['username']) && isset($_POST['persian_name'])){
+        if (isset($_POST['email']) && isset($_POST['username']) && isset($_POST['persian_name']) && !empty($_POST['email']) && !empty($_POST['username'])){
             $user_id = $user->id;
             $res = $users->update($_POST,$user_id);
             $email_error = $res['email'];

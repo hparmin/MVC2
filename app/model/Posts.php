@@ -150,12 +150,14 @@ class Posts extends Model
             posts_tbl.title,
             posts_tbl.body,
             posts_tbl.img,
+            posts_tbl.categories,
 
             users_tbl.username,
             users_tbl.persian_name,
             users_tbl.email,
 
-            categories_tbl.title AS category_title
+            categories_tbl.title AS category_title,
+            categories_tbl.id AS category_id
 
         FROM posts_tbl
 

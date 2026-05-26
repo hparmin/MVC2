@@ -19,7 +19,8 @@
         </a>
         <nav class="d-inline-flex mt-2 mt-md-0 ">
             <?php foreach ($categories as $category): ?>
-                <a class="<?php if (false){echo "fw-bold"; } ?>  me-3 py-2 link-body-emphasis text-decoration-none" href="#"><?php echo $category->title; ?></a>
+                <a class="<?php if (false){echo "fw-bold"; } ?>  me-3 py-2 link-body-emphasis text-decoration-none"
+                   href="<?php $this->url("categories/archive/$category->id"); ?>"><?php echo $category->title; ?></a>
             <?php endforeach; ?>
         </nav>
         <div class="me-md-auto login-register-header-link">

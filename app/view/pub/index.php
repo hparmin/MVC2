@@ -123,7 +123,7 @@ $this->layout_include('pub.layout.header',compact('categories'));
             </div>
 
             <!-- Sidebar Section -->
-            <?php $this->layout_include('pub.layout.sidebar'); ?>
+            <?php $this->layout_include('pub.layout.sidebar',compact('categories')); ?>
         </div>
     </section>
 </main>

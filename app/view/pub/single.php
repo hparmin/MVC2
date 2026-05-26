@@ -1,5 +1,5 @@
 <?php
-$this->layout_include('pub.layout.header');
+$this->layout_include('pub.layout.header', compact('categories'));
 ?>
 <main>
     <!-- Content -->
@@ -12,30 +12,34 @@ $this->layout_include('pub.layout.header');
                     <div class="col">
                         <div class="card">
                             <?php global $site_url; ?>
-                            <img src="<?php echo $site_url.$post->img; ?>"
-                                    class="card-img-top"
-                                    alt="post-image"/>
+                            <img src="<?php echo $site_url . $post->img; ?>"
+                                 class="card-img-top"
+                                 alt="post-image"/>
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <h5 class="card-title fw-bold">
                                         <?php echo $post->title; ?>
                                     </h5>
                                     <div>
-                                        <span class="badge text-bg-secondary">طبیعت</span>
+                                        <a href="<?php $this->url("categories/archive/$post->category_id"); ?>">
+                                            <span class="badge text-bg-secondary">
+                                                <?php echo $post->category_title; ?>
+                                            </span>
+                                        </a>
                                     </div>
                                 </div>
                                 <p class="card-text text-secondary text-justify pt-3">
-                                   <?php echo $post->body; ?>
+                                    <?php echo $post->body; ?>
                                 </p>
                                 <div>
                                     <p class="fs-6 mt-5 mb-0">
                                         نویسنده :
                                         <?php
-                                        if ($post->persian_name){
+                                        if ($post->persian_name) {
                                             echo $post->persian_name;
-                                        }elseif ($post->username){
+                                        } elseif ($post->username) {
                                             echo $post->username;
-                                        }else{
+                                        } else {
                                             echo $post->email;
                                         }
                                         ?>
@@ -145,7 +149,7 @@ $this->layout_include('pub.layout.header');
             </div>
 
             <!-- Sidebar Section -->
-            <?php $this->layout_include('pub.layout.sidebar'); ?>
+            <?php $this->layout_include('pub.layout.sidebar',compact('categories')); ?>
         </div>
     </section>
 </main>

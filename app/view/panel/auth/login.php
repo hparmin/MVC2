@@ -1,4 +1,4 @@
-<?php $this->layout_include('pub.layout.header');
+<?php $this->layout_include('pub.layout.header',compact('categories'));
 if (isset($_SESSION['login'])){
     $this->route('panel');
 }

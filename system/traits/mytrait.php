@@ -36,7 +36,7 @@ trait Mytrait
             echo $path;
         }
     }
-    
+
 
     protected function layout_include($file, $var = null)
     {
